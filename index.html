@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PETA #2.3 (PLATINUM ACEWE)</title>
+</head>
+<style>
+
+  @font-face {
+    font-family: 'cortis';
+    src: url('/NeueHaasGrotDisp-95Black-Trial.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  body {
+    margin: 0px;
+    background: rgba(131, 255, 166, 1);
+  }
+  
+  .banner {
+    overflow: hidden;
+    display: block;
+    mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 1) 45% , rgba(255, 255, 255, 0) 95%);
+    z-index: -99;
+    height: 400px;
+  }
+  
+  .banner img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    animation: animate 10s ease;
+    animation-iteration-count: infinite;
+    transform: scale(1);
+  }
+  
+  .logo {
+    font-family: 'cortis', Arial, sans-serif;
+    text-align: center;
+    font-size: 2.5em;
+    transform: translateY(-100px);
+    text-shadow: 0px 2px 50px;
+  }
+  
+  .form {
+    transform: translateY(-60px);
+    margin: 10px;
+    text-align: center;
+  }
+  
+  .register {
+    text-align: center;
+  }
+  
+  .register button {
+    transform: scale(1.0);
+    padding: 1em 1.5em;
+    font-size: 16px;
+    border-radius: 20px;
+    border: none;
+    font-family: 'cortis', Arial, sans-serif;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .register button:hover {
+    transform: scale(1.2);
+  }
+  
+   .page-background {
+   background: url('/517a86be65e2c862e73e1ecd18a85627.gif');
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   opacity: 30%;
+ }
+ 
+   .progress-bar {
+    width: 80%;
+    cursor: pointer;
+    color: rgba(153, 153, 153, 1);
+    margin-bottom: 10px;
+    transform: translateY(-20px);
+  }
+  
+  .play-btn {
+    
+    padding: 15px 40px;
+    border-radius: 35px;
+    font-size: 22px;
+    transform: translateY(-20px);
+    border: none;
+  }
+  
+  @keyframes animate {
+    0% {
+      transform: scale(1);
+    }
+    
+    50% {
+      transform: scale(1.10);
+    }
+    
+    100% {
+      transform: scale(1);
+    }
+  }
+</style>
+<body>
+  
+  <div class="page-background">
+</div>
+
+  <div class="banner">
+    <img src="/redred.jpg">
+  </div>
+  <div class="logo">PETA #2.3: Registration Forms</div>
+    
+
+  
+  <div class="form">
+    
+    <div class="music-player">
+  <h1 style="color: white; font-family: 'njs', Arial, sans-serif; font-weight:  bold;">REDRED</h1>
+  <p style="color: white; transform: translateY(-20px);">CORTIS</p>
+  <audio id="myAudio">
+    <source src="REDRED.m4a">
+  </audio>
+  <input type="range" id="progressBar" class="progress-bar" value="0" min="0" max="100" step="0.1">
+  <button id="playBtn" class="play-btn">▶</button>
+  
+</div>
+      <h1 style="font-family: 'cortis', Arial, sans-serif; text-align: center;">
+    STUDENT REGISTRATION <br>FORM!
+  </h1>
+  <div class="register">
+  <button id="rgBttn" onclick="direct()">Register Now!</button>
+    </div>
+      <img src="https://c.tenor.com/jpyTQVfH470AAAAd/tenor.gif" style="margin: 15px; width: 300px;">
+  </div>
+
+</body>
+<script>
+  function direct () {
+    window.location.href = 'form.html'
+  };
+  
+  const audio = document.getElementById('myAudio');
+const playBtn = document.getElementById('playBtn');
+const progressBar = document.getElementById('progressBar');
+
+playBtn.addEventListener('click', () => {
+  if (audio.paused) {
+    audio.play();
+    playBtn.textContent = '❚❚';
+  } else {
+    audio.pause();
+    playBtn.textContent = '▶';
+  }
+});
+
+audio.addEventListener('loadedmetadata', () => {
+  progressBar.max = audio.duration;
+});
+
+audio.addEventListener('timeupdate', () => {
+  progressBar.value = audio.currentTime;
+});
+
+progressBar.addEventListener('input', () => {
+  audio.currentTime = progressBar.value;
+});
+
+audio.addEventListener('ended', () => {
+  playBtn.textContent = '▶';
+  progressBar.value = 0;
+});
+</script>
+</html>
