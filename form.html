@@ -10,7 +10,7 @@
 
   @font-face {
     font-family: 'cortis';
-    src: url('NeueHaasGrotDisp-95Black-Trial.otf') format('opentype');
+    src: url('/NeueHaasGrotDisp-95Black-Trial.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
   }
@@ -18,7 +18,6 @@
     margin: 0px;
     background: rgba(125, 255, 160, 1);
     animation: fadeIn 1s ease;
-    
   }
   
   .banner {
@@ -46,81 +45,175 @@
     text-shadow: 0px 2px 50px;
   }
   
-  .form {
+  .form, .thank-you-card {
     transform: translateY(-50px);
     margin: 25px;
     align-content: center;
     font-family: 'cortis', Arial, sans-serif;
   }
   
-  input, select {
+  input, select, textarea {
     padding: 11px 15px;
     font-family: 'cortis', Arial, sans-serif;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    background: #ffffff;
+    box-sizing: border-box;
+  }
+
+  select[multiple] {
+    padding: 5px;
+  }
+
+  select[multiple] option {
+    padding: 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
   
   label {
     text-align: left;
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  .hint {
+    font-size: 0.85em;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 6px;
   }
   
+  .section-title {
+    font-family: 'cortis', Arial, sans-serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+    padding-bottom: 5px;
+  }
+
   .info {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
   
-    .info:hover {
-    transform: scale(1.03);
+  .info:hover {
+    transform: scale(1.02);
   }
   
-  .gender-option {
-   display: flex;
-   align-items: center;
-   margin-bottom: 10px;
-   cursor: pointer;
-   padding: 10px 10px;
-   background: rgba(0, 0, 0, 0.39);
-   transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
- }
-   .gender-option:hover {
-    transform: scale(1.05);
+  .gender-option, .checkbox-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+    padding: 10px 10px;
+    background: rgba(0, 0, 0, 0.39);
+    border-radius: 4px;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .gender-option:hover, .checkbox-option:hover {
+    transform: scale(1.03);
   }
  
- .gender-option:last-child {
-   margin-bottom: 0;
- }
+  .gender-option:last-child, .checkbox-option:last-child {
+    margin-bottom: 0;
+  }
  
- .gender-option input[type="radio"] {
-   width: 18px;
-   height: 18px;
-   margin-right: 10px;
-   accent-color: rgba(95, 188, 120, 1);
-   cursor: pointer;
- }
+  .gender-option input[type="radio"], .checkbox-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    accent-color: rgba(95, 188, 120, 1);
+    cursor: pointer;
+  }
  
- .gender-option label {
-   margin-bottom: 0;
-   font-weight: normal;
-   text-transform: none;
-   color: #FFFFFF;
-   cursor: pointer;
- }
- 
- .page-background {
-   background: url('517a86be65e2c862e73e1ecd18a85627.gif');
-   position: fixed;
-   width: 100%;
-   height: 100%;
-   opacity: 30%;
- }
+  .gender-option label, .checkbox-option label {
+    margin-bottom: 0;
+    font-weight: normal;
+    text-transform: none;
+    color: #FFFFFF;
+    cursor: pointer;
+  }
+
+  .form-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+  }
+
+  .btn {
+    flex: 1;
+    padding: 14px;
+    font-family: 'cortis', Arial, sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    transition: 0.3s ease;
+  }
+
+  .btn-submit {
+    background: rgba(0, 0, 0, 0.85);
+    color: #FFFFFF;
+  }
+
+  .btn-submit:hover {
+    background: rgba(0, 0, 0, 1);
+    transform: scale(1.02);
+  }
+
+  .btn-reset {
+    background: rgba(255, 255, 255, 0.7);
+    color: #000000;
+  }
+
+  .btn-reset:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.02);
+  }
+
+  .thank-you-card {
+    display: none;
+    background: rgba(255, 255, 255, 0.85);
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    animation: fadeIn 0.8s ease;
+  }
+
+  .thank-you-card h2 {
+    font-size: 2.2em;
+    margin-bottom: 15px;
+    color: #000000;
+  }
+
+  .thank-you-card p {
+    font-size: 1.1em;
+    color: #333333;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .page-background {
+    background: url('/517a86be65e2c862e73e1ecd18a85627.gif');
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    opacity: 30%;
+    z-index: -999;
+  }
   
   @keyframes animate {
     0% {
       transform: scale(1);
     }
-    
     50% {
       transform: scale(1.10);
     }
-    
     100% {
       transform: scale(1);
     }
@@ -138,76 +231,285 @@
   }
 </style>
 <body>
-  <div class="page-background">
-  </div>
+  <div class="page-background"></div>
 
   <div class="banner">
-    <img src="redred.jpg">
+    <img src="/redred.jpg">
   </div>
   <div class="logo">CORTIS</div>
 
-  
   <div class="form">
+    <form id="registrationForm">
       <h2 style="font-family: 'cortis', Arial, sans-serif; text-align: center;">
-    STUDENT REGISTRATION FORM
-  </h2>
-  <div class="info">
-  <label>Name</label>
-  <input type="textarea" placeholder="e.g, Juan Dela Cruz" style="width: 89%;">
-  </div>
-  <div class="info">
-  <label>Learner's Reference Number (LRN)</label>
-  <input type="textarea" placeholder="XXXXXXXXXXXX (12 digits long)" style="width: 89%;">
-  </div>
-    <div class="info">
-  <label>Grade Level</label>
-<select name="select" id="cars" style="width: 100%";>
-  <option value="volvo">Grade 7</option>
-  <option value="saab">Grade 8</option>
-  <option value="mercedes" selected>Grade 9</option>
-  <option value="audi">Grade 10</option>
-  <option value="audi">Grade 11 - STEM</option>
-  <option value="audi">Grade 11 - ABM</option>
-  <option value="audi">Grade 12 - STEM</option>
-  <option value="audi">Grade 12 - ABM</option>
-</select>
+        STUDENT REGISTRATION FORM
+      </h2>
+      
+      <div class="section-title">I. Basic Information</div>
+
+      <div class="info">
+        <label>Full Name</label>
+        <input type="text" placeholder="e.g, Juan Dela Cruz" style="width: 100%;" required>
+      </div>
+
+      <div class="info">
+        <label>Learner's Reference Number (LRN)</label>
+        <input type="text" placeholder="XXXXXXXXXXXX (12 digits long)" style="width: 100%;" required>
+      </div>
+
+      <div class="info">
+        <label>Student Classification</label>
+        <select name="student_type" style="width: 100%;">
+          <option value="regular" selected>Regular / Old Student</option>
+          <option value="transferee">Transferee</option>
+          <option value="returning">Returning (Balik-Aral)</option>
+        </select>
+      </div>
+
+      <div class="info">
+        <label>Grade Level & Strand</label>
+        <select name="grade_level" style="width: 100%;">
+          <option value="grade7">Grade 7</option>
+          <option value="grade8">Grade 8</option>
+          <option value="grade9" selected>Grade 9</option>
+          <option value="grade10">Grade 10</option>
+          <option value="grade11_stem">Grade 11 - STEM</option>
+          <option value="grade11_abm">Grade 11 - ABM</option>
+          <option value="grade11_humss">Grade 11 - HUMSS</option>
+          <option value="grade12_stem">Grade 12 - STEM</option>
+          <option value="grade12_abm">Grade 12 - ABM</option>
+          <option value="grade12_humss">Grade 12 - HUMSS</option>
+        </select>
+      </div>
+
+      <div class="info">
+        <label>Birthdate</label>
+        <input type="date" style="width: 100%;" required>
+      </div>
+
+      <div class="info">
+        <div class="gender-box">
+          <p style="margin-top:0;">Gender Identity:</p>
+          
+          <div class="gender-option">
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+          </div>
+          
+          <div class="gender-option">
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+          </div>
+          
+          <div class="gender-option">
+            <input type="radio" id="non-binary" name="gender" value="non-binary">
+            <label for="non-binary">Non-binary</label>
+          </div>
+          
+          <div class="gender-option">
+            <input type="radio" id="prefer-not-say" name="gender" value="prefer-not-say">
+            <label for="prefer-not-say">Prefer not to say</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">II. Academic Goals & Reflection</div>
+
+      <div class="info">
+        <label>What is your dream / career ambition?</label>
+        <input type="text" placeholder="e.g., Software Engineer, Doctor, Architect, Entrepreneur" style="width: 100%;">
+      </div>
+
+      <div class="info">
+        <label>What subject do you want to focus on this school year?</label>
+        <select name="focus_subject" style="width: 100%;">
+          <option value="mathematics">Mathematics</option>
+          <option value="science">Science</option>
+          <option value="english">English</option>
+          <option value="filipino">Filipino</option>
+          <option value="social_studies">Araling Panlipunan</option>
+          <option value="ict">TLE-ICT</option>
+          <option value="mapeh">MAPEH</option>
+          <option value="tle">VALUES EDUCATION</option>
+        </select>
+      </div>
+
+      <div class="info">
+        <label>Expected Grade for 2nd Term</label>
+        <select name="expected_grade" style="width: 100%;">
+          <option value="90">90</option>
+          <option value="91">91</option>
+          <option value="92">92</option>
+          <option value="93">93</option>
+          <option value="94">94</option>
+          <option value="95" selected>95</option>
+          <option value="96">96</option>
+          <option value="97">97</option>
+          <option value="98">98</option>
+          <option value="99">99</option>
+          <option value="100">100</option>
+        </select>
+      </div>
+
+      <div class="info">
+        <label>Average daily study hours outside class</label>
+        <select name="study_hours" style="width: 100%;">
+          <option value="less_1">Less than 1 hour</option>
+          <option value="1_2" selected>1 - 2 hours</option>
+          <option value="2_4">2 - 4 hours</option>
+          <option value="more_4">More than 4 hours</option>
+        </select>
+      </div>
+
+      <div class="info">
+        <label>Preferred Learning Style</label>
+        <select name="learning_style" style="width: 100%;">
+          <option value="visual">Visual (Diagrams, Videos, Charts)</option>
+          <option value="auditory">Auditory (Lectures, Discussions)</option>
+          <option value="reading">Reading & Writing (Notes, Handouts)</option>
+          <option value="kinesthetic">Kinesthetic (Hands-on, Experiments)</option>
+        </select>
+      </div>
+
+      <div class="info">
+        <label>Which subject do you find most challenging?</label>
+        <input type="text" placeholder="e.g., Mathematics, Science, etc." style="width: 100%;">
+      </div>
+
+      <div class="info">
+        <label>Personal academic goal for this term</label>
+        <textarea rows="3" placeholder="Describe what you want to achieve or improve on this 2nd term..." style="width: 100%;"></textarea>
+      </div>
+
+      <div class="section-title">III. Extracurricular & Organization Involvement</div>
+
+      <div class="info">
+        <label>School Club(s) / Organization(s)</label>
+        <div class="hint">Hold Ctrl to select multiple clubs:</div>
+        <select name="student_clubs[]" multiple size="5" style="width: 100%;">
+          <option value="none">None / Not Joined Yet</option>
+          <option value="ssg">Supreme Student Government (SSLG)</option>
+          <option value="robotics">Robotics Club</option>
+          <option value="science">Science Club</option>
+          <option value="math">Math Wizard Club</option>
+          <option value="ict">ICT Club</option>
+          <option value="art">Art Club</option>
+          <option value="music">Music Club</option>
+          <option value="samafil">SAMAFIL Club</option>
+          <option value="sert">SERT Club</option>
+          <option value="mapeh">MAPEH Club</option>
+          <option value="fil_journ">Ang Felipean</option>
+          <option value="eng_journ">The Felipean</option>
+          <option value="sports">Sports Club</option>
+          <option value="dance">Dance Troupe</option>
+          <option value="scouts">Senior Scouts</option>
+          <option value="kasama">KASAMA Club</option>
+          <option value="bkd">Barkada Kontra Droga (BKD) Club</option>
+          <option value="agri">Agri Club</option>
+          <option value="pride">Pride Club</option>
+        </select>
+      </div>
+
+      <div class="info">
+        <label>Position(s) / Role(s) Held</label>
+        <select name="club_positions[]" multiple size="5" style="width: 100%;">
+          <option value="member" selected>Regular Member</option>
+          <option value="president">President</option>
+          <option value="vice_president">Vice President</option>
+          <option value="secretary">Secretary</option>
+          <option value="treasurer">Treasurer</option>
+          <option value="auditor">Auditor</option>
+          <option value="pio">Public Information Officer (PIO)</option>
+          <option value="protocol_officer">Protocol Officer / Peace Officer</option>
+        </select>
+      </div>
+
+      <div class="section-title">IV. Contact & Guardian Details</div>
+
+      <div class="info">
+        <label>Student Mobile Number</label>
+        <input type="tel" placeholder="09123456789" style="width: 100%;">
+      </div>
+
+      <div class="info">
+        <label>Email Address</label>
+        <input type="email" placeholder="yourname@gmail.com" style="width: 100%;" required>
+      </div>
+
+      <div class="info">
+        <label>Home Address</label>
+        <input type="text" placeholder="House No., Street, Barangay, City, Province" style="width: 100%;">
+      </div>
+
+      <div class="info">
+        <label>Parent / Guardian Name</label>
+        <input type="text" placeholder="e.g., Maria Dela Cruz" style="width: 100%;">
+      </div>
+
+      <div class="info">
+        <label>Parent / Guardian Contact Number</label>
+        <input type="tel" placeholder="09123456789" style="width: 100%;">
+      </div>
+
+      <div class="info">
+        <label>Relationship to Guardian</label>
+        <select name="guardian_relation" style="width: 100%;">
+          <option value="mother">Mother</option>
+          <option value="father">Father</option>
+          <option value="grandparent">Grandparent</option>
+          <option value="relative">Other Relative</option>
+          <option value="legal_guardian">Legal Guardian</option>
+        </select>
+      </div>
+
+      <div class="section-title">V. Self-Checking & Screening</div>
+
+      <div class="info">
+        <label>Mode of Transportation to School</label>
+        <select name="transport_mode" style="width: 100%;">
+          <option value="walk">Walking</option>
+          <option value="commute">Public Commute (Jeep/Bus/Tricycle)</option>
+          <option value="private">Private Vehicle / Drop-off</option>
+          <option value="school_bus">School Service</option>
+        </select>
+      </div>
+
+      <div class="info">
+        <label>Medical Conditions or Allergies (Optional)</label>
+        <textarea rows="3" placeholder="Please specify any medical conditions, asthma, or severe allergies we should be aware of..." style="width: 100%;"></textarea>
+      </div>
+
+      <div class="info">
+        <p style="margin-top:0;">Self-Verification Checkbox:</p>
+        <div class="checkbox-option">
+          <input type="checkbox" id="confirm_info" name="confirm_info" required>
+          <label for="confirm_info">I certify that all details provided above are true, accurate, and complete.</label>
+        </div>
+      </div>
+
+      <div class="form-buttons">
+        <button type="reset" class="btn btn-reset">Reset Form</button>
+        <button type="submit" class="btn btn-submit">Submit Form</button>
+      </div>
+
+    </form>
+    
+    <div id="thankYouSection" class="thank-you-card">
+      <h2>THANK YOU!</h2>
+      <p>Your student registration and reflection form has been successfully submitted.</p>
+      <button type="button" class="btn btn-submit" onclick="location.reload();">Submit Another Response</button>
+    </div>
 
   </div>
-    <div class="info">
-    <label>Email Address</label>
-    <input type="textarea" placeholder="yourname@gmail.com" style="width: 89%;">
-  </div>
-  <div class="info">
-      <label>Birthdate</label>
-      <input type="date" placeholder="yourname@gmail.com" style="width: 89%;">
-    </div>
-   <div class="info">
-   <div class="gender-box">
-     <p>Please select your gender:</p>
-     
-     <div class="gender-option">
-       <input type="radio" id="female" name="gender" value="female">
-       <label for="female">Female</label>
-     </div>
-     
-     <div class="gender-option">
-       <input type="radio" id="male" name="gender" value="male">
-       <label for="male">Male</label>
-     </div>
-     
-     <div class="gender-option">
-       <input type="radio" id="non-binary" name="gender" value="non-binary">
-       <label for="non-binary">Non-binary</label>
-     </div>
-     
-     <div class="gender-option">
-       <input type="radio" id="prefer-not-say" name="gender" value="prefer-not-say">
-       <label for="prefer-not-say">Prefer not to say</label>
-     </div>
-   </div>
- </div>
-  </div>
-  
+
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('registrationForm').style.display = 'none';
+      document.getElementById('thankYouSection').style.display = 'block';
+      window.scrollTo({ top: 300, behavior: 'smooth' });
+    });
+  </script>
+
 </body>
 
 </html>
